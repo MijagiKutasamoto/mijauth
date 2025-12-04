@@ -1,0 +1,12 @@
+{
+  "name": "mijauth-nodejs",
+  "version": "1.0.0",
+  "description": "MijAuth - System 2FA oparty na plikach (Node.js)",
+  "main": "MijAuth.js",
+  "scripts": {
+    "start": "node example.js",
+    "test": "node example.js"
+  },
+  "keywords": ["2fa", "authentication", "security", "aes-256"],
+  "license": "MIT"
+}
