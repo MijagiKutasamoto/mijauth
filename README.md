@@ -56,7 +56,35 @@ The file contains JSON data, encrypted with AES-256-GCM:
 
 ### Installation and Usage
 
-#### PHP
+#### PHP (Composer)
+
+```bash
+composer require mijagikutasamoto/mijauth
+```
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+use MijAuth\AuthManager;
+
+// Initialize
+$auth = new AuthManager();
+
+// Register user
+$result = $auth->registerUser('user123', 'email@example.com', 'password');
+file_put_contents('user.mijauth', $result['auth_file']);
+
+// Login
+$fileContent = file_get_contents('user.mijauth');
+$user = $auth->login('email@example.com', 'password', $fileContent);
+
+if ($user) {
+    echo "Login successful!";
+}
+```
+
+#### PHP (Manual)
 ```bash
 cd examples/php
 php example.php
@@ -247,7 +275,35 @@ Plik zawiera dane w formacie JSON, zaszyfrowane AES-256-GCM:
 
 ### Instalacja i użycie
 
-#### PHP
+#### PHP (Composer)
+
+```bash
+composer require mijagikutasamoto/mijauth
+```
+
+```php
+<?php
+require 'vendor/autoload.php';
+
+use MijAuth\AuthManager;
+
+// Inicjalizacja
+$auth = new AuthManager();
+
+// Rejestracja użytkownika
+$result = $auth->registerUser('user123', 'email@example.com', 'haslo');
+file_put_contents('user.mijauth', $result['auth_file']);
+
+// Logowanie
+$fileContent = file_get_contents('user.mijauth');
+$user = $auth->login('email@example.com', 'haslo', $fileContent);
+
+if ($user) {
+    echo "Logowanie udane!";
+}
+```
+
+#### PHP (Ręcznie)
 ```bash
 cd examples/php
 php example.php
